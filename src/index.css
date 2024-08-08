@@ -1,13 +1,183 @@
+/* Tổng thể cho body */
 body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Đảm bảo root container */
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Container tổng thể cho ứng dụng */
+.todo-app {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 100%;
+  margin: 20px;
+}
+
+/* Tiêu đề chính */
+h1 {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Menu điều hướng dưới tiêu đề */
+.filter-buttons {
+  display: flex;
+  justify-content: space-around; /* Căn đều các nút */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd; /* Thêm đường gạch dưới cho toàn bộ */
+  position: relative;
+}
+
+/* Các nút trong filter-buttons */
+.filter-buttons button {
+  background-color: transparent; /* Loại bỏ màu nền */
+  color: #333;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Hiệu ứng khi hover các nút */
+.filter-buttons button:hover {
+  color: #007bff;
+}
+
+/* Đường gạch dưới hiện tại của nút được chọn */
+.filter-buttons button.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Đặt đường gạch dưới sát đáy nút */
+  width: 100%;
+  height: 2px;
+  background-color: #007bff; /* Màu xanh */
+}
+
+/* Đặt class .active vào nút được chọn */
+.filter-buttons .active {
+  color: #007bff;
+}
+
+/* Phần nhập liệu và nút thêm */
+.input-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Input để nhập task mới */
+.input-section input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/* Nút bấm thêm task */
+.input-section button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Hiệu ứng khi hover nút bấm */
+.input-section button:hover {
+  background-color: #0056b3;
+}
+
+/* Danh sách công việc */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+/* Một công việc */
+li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  position: relative; /* Để sử dụng position: absolute trong nút delete */
+}
+
+/* Không có đường kẻ dưới cho công việc cuối cùng */
+li:last-child {
+  border-bottom: none;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Nhãn cho công việc */
+label {
+  flex-grow: 1;
+  font-size: 16px;
+  margin-right: 10px; /* Đảm bảo có khoảng cách giữa label và nút delete */
+}
+
+/* Nút delete trong todo-item */
+.todo-item button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px; /* Khoảng cách với nhãn công việc */
+  font-size: 14px;
+}
+
+/* Hiệu ứng khi hover nút delete */
+.todo-item button:hover {
+  background-color: #cc0000;
+}
+
+/* Nút delete all */
+.delete-all {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  width: 100px;
+  text-align: center;
+  margin-left: auto; 
+}
+
+.delete-all:hover {
+  background-color: #cc0000;
 }
